@@ -6,21 +6,6 @@ server.use(express.json())
 const projects = []
 
 /**
- * Middleware que checa se o projeto existe
- */
-function checkProjectExists(req, res, next) {
-  const { id } = req.params
-  
-  const project = projects.find(p => p.id == id)
-
-  if(!project) {
-    return res.status(400).json({ error: `Project not found` })
-  }
-
-  return next()
-}
-
-/**
  * Middleware que dá log no número de requisições
  */
 function logRequests(req, res, next) {
@@ -34,6 +19,21 @@ server.use((req, res, next) => {
 
   next()
 })
+
+/**
+ * Middleware que checa se o projeto existe
+ */
+function checkProjectExists(req, res, next) {
+  const { id } = req.params
+  
+  const project = projects.find(p => p.id == id)
+
+  if(!project) {
+    return res.status(400).json({ error: `Project not found` })
+  }
+
+  return next()
+}
 
 /**
  * Retorna todos os projetos
