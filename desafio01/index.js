@@ -29,6 +29,11 @@ function logRequests(req, res, next) {
   return next()
 }
 
+server.use((req, res, next) => {
+  console.log(`Método: ${req.method}; URL ${req.url}`)
+
+  next()
+})
 
 /**
  * Retorna todos os projetos
