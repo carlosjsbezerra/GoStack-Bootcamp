@@ -8,6 +8,7 @@ server.use(express.json())
  *  Query Params -  ?name=carlos
  *  Route Params -  /users/1
  *  Request body = { "name": "Carlos", "Email": "carlos@empresa.local"}
+ * teste
  */
 
 /**
